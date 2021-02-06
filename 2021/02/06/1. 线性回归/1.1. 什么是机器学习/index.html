@@ -19,7 +19,7 @@
   <meta name="description" content="">
   <meta name="author" content="Kigiha Oreki">
   <meta name="keywords" content="">
-  <title>Mirror</title>
+  <title>1.1. 什么是机器学习 - Mirror</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -164,7 +164,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="">
+            <span class="h2" id="subtitle" title="1.1. 什么是机器学习">
               
             </span>
 
@@ -186,7 +186,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      580 字
     </span>
   
 
@@ -196,7 +196,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      6
        分钟
     </span>
   
@@ -226,7 +226,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">1.1. 什么是机器学习</h1>
             
               <p class="note note-info">
                 
@@ -235,56 +235,22 @@
               </p>
             
             <div class="markdown-body">
-              <style>
-img{
-    width: 40%;
-    padding-left: 20%;
-}
-</style>
-
-
-<h1 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h1><p>在开始之前，为了方便解释，首先规定几个符号所代表的意义：<br>$m$ 训练集中训练样本的数量<br>$X$  输入变量<br>$Y$  输出变量<br>$(x,y)$ 训练样本<br>$(x^i,y^i)$第i个训练样本（i表示一个索引）</p>
-<h2 id="监督学习算法的流程"><a href="#监督学习算法的流程" class="headerlink" title="监督学习算法的流程"></a>监督学习算法的流程</h2><p>提供训练集&gt;学习算法得到$h$（假设函数：用于描绘x与y的关系）&gt;预测y 的值</p>
-<h2 id="代价-损失函数（Cost-function）"><a href="#代价-损失函数（Cost-function）" class="headerlink" title="代价/损失函数（Cost function）"></a>代价/损失函数（Cost function）</h2><p><strong>假设函数(Hypothesis function)</strong>——$h$是用来表示某一个数据集可能存在的线性/非线性关系的函数。对于线性拟合，其假设函数为：</p>
-<script type="math/tex; mode=display">
-h_θ(x)=θ_1x+θ_0</script><p>这其中的$θ$是假设函数当中的参数。<br>也可以简化为：</p>
-<script type="math/tex; mode=display">
-h_θ(x)=θ_1x</script><p><strong>代价函数</strong>，在统计学上称为均方根误差函数。当假设函数中的系数$θ$取不同的值时，$\frac{1}{2m}$倍假设函数预测值$h_θ(x^{(i)})$和真实值$y^{(i)}$的差的平方的和之间的函数关系表示为代价函数$J$。</p>
-<script type="math/tex; mode=display">J(θ_0,θ_1)=\frac{1}{2m}∑_{i=1}^m(h_θ(x^{(i)})-y^{(i)})^2</script><blockquote>
-<p>在这里取1/2的原因是便于消除求导之后产生的2倍,同时也可以进一步缩小$θ$  </p>
-<p>该函数的自变量是$θ_1$和$θ_0$，因此该函数是三维的函数（如图所示）。<br> <img src="https://raw.githubusercontent.com/l61012345/Pic/master/img/20210131130651.png" srcset="/img/loading.gif" alt="">  </p>
+              <h1 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h1><h2 id="机器学习的定义"><a href="#机器学习的定义" class="headerlink" title="机器学习的定义"></a>机器学习的定义</h2><blockquote>
+<p>A computer  program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.    ——Tom Mitchelle</p>
 </blockquote>
-<p><strong>代价函数在几何上表示为数据集空间内的各点到假设函数的距离的平方的平均值的一半。</strong><br>要想使得数据能够被假设函数很好地拟合，那么代价函数要尽量地小。<strong>当代价函数取到它的最小值即$J(θ<em>1)</em>{min}$时，此时的填入假设函数的$θ$对数据的拟合程度是最好的。</strong><br>对于线性的代价函数，假设函数对数据集的拟合程度越高，对应的$(θ_0,θ_1)$越接近代价函数图像等高线的中心。<br><img src="https://raw.githubusercontent.com/l61012345/Pic/master/img/20210131132852.png" srcset="/img/loading.gif" alt="">   </p>
-<h2 id="梯度下降算法（Gradient-Descent）"><a href="#梯度下降算法（Gradient-Descent）" class="headerlink" title="梯度下降算法（Gradient Descent）"></a>梯度下降算法（Gradient Descent）</h2><h3 id="梯度"><a href="#梯度" class="headerlink" title="梯度"></a>梯度</h3><p>在微积分中，函数$f(x,y)$在$(x_0,y_0)$处是函数值增加最快的方向是<strong>梯度（Gradient）</strong>的方向，<strong>梯度的反方向是函数值减小最快的方向。</strong><br>梯度的计算公式：  </p>
-<script type="math/tex; mode=display">▿f|_{(x_0,y_0)}=(f_x(x_0,y_0),f_y(x_0,y_0))</script><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>梯度下降算法是一种求解代价函数最小值的方法，它可以用在<strong>多维任意的假设函数</strong>当中。简而言之，梯度下降算法求得$J(θ<em>1)</em>{min}$的主要思路是：</p>
-<ol>
-<li>给定$θ_0$和$θ_1$的初始值，通常令$θ_0=0$，$θ_1=0$。</li>
-<li>不断改变$θ_0$和$θ_1$的值使得$J(θ_0,θ_1$的值逐渐变小，直到找到$J(θ_0,θ_1)$的最小值或者局部最小值。<br>如果从一个初始值出发，寻找附近的最小值，重复该过程，得到上图，最后得到的值为局部最优解。</li>
-</ol>
-<blockquote>
-<p>将梯度下降算法类比为爬山，从一个点开始，不断寻找“下山”的路线，最后找到一个“下山”的出口。——吴恩达</p>
-</blockquote>
-<p>当改变初始值时，会找到另一条“下山”的路径，找到第二个局部最优解（局部最小值）。<br><img src="https://raw.githubusercontent.com/l61012345/Pic/master/img/20210131134419.png" srcset="/img/loading.gif" alt=""><br>对于线性回归的代价函数而言，只存在一个局部最小值。（见代价函数的图像）</p>
-<h3 id="表示"><a href="#表示" class="headerlink" title="表示"></a>表示</h3><p>梯度下降算法可以表示为：<br>Repeat untill convergence{</p>
-<script type="math/tex; mode=display">
-θ_j:=θ_j-α\frac{∂J(θ_0,θ_1)}{∂θ_j},j=0~and~j=1</script><p>}解释：</p>
-<ol>
-<li>:=  表示赋值运算符</li>
-<li>α称为<strong>学习率</strong>，用来控制下降的<strong>步长</strong>（Padding），即更新的幅度：<br>如果α太小，同步更新的速率会非常的慢<br>而α过大，同步更新时可能会越过最小值点</li>
-<li>$\frac{∂J(θ_0,θ_1)}{∂θ_j}$是代价函数的梯度：</li>
-</ol>
-<script type="math/tex; mode=display">
-\frac{∂J(θ_0,θ_1)}{∂θ_0}=\frac{1}{m}∑_{i=1}^m(h_θ(x^{(i)})-y^{(i)})</script><script type="math/tex; mode=display">\frac{∂J(θ_0,θ_1)}{∂θ_1}=\frac{1}{m}∑_{i=1}^m(h_θ(x^{(i)})-y^{(i)})x^{(i)}</script><p><img src="https://raw.githubusercontent.com/l61012345/Pic/master/img/20210131135144.png" srcset="/img/loading.gif" alt=""><br>△在代价函数中（以简化的代价函数为例），无论初始值在最小值点的左侧还是右侧，通过同步更新都能够使该点被“移动（Update）”到最小值，在最小值点，由于导数值为0，最终同步更新停止在了$θ_j=θ_j$，如前面所说，$θ_j$即为极小值点。  </p>
-<h3 id="同步更新"><a href="#同步更新" class="headerlink" title="同步更新"></a>同步更新</h3><p><strong>同步更新</strong>（Simulaneous update）是实现梯度下降算法的最有效方式。  </p>
-<script type="math/tex; mode=display">temp0:~~θ_0:=θ_0-α\frac{∂J(θ_0,θ_1)}{∂θ_0}</script><script type="math/tex; mode=display">
-temp1:~~θ_1:=θ_1-α\frac{∂J(θ_0,θ_1)}{∂θ_1}</script><script type="math/tex; mode=display">
-θ_0:=temp0</script><script type="math/tex; mode=display">
-θ_1:=temp1</script><p>这个更新方程能够同时更新$θ_0$和$θ_1$：$θ_0$更新为$θ_0-J’(θ)$，对$θ_1$同理。<br>更新的方法是计算赋值号右边带入$θ_1$和$θ_2$的值进行计算，得到的两个值分别储存在temp0和temp1中，从上到下进行赋值。</p>
-<p>对于简化的代价函数：</p>
-<script type="math/tex; mode=display">
-θ_1：=θ_1-αJ'(θ_1)</script><script type="math/tex; mode=display">\frac{dJ(θ_1,θ_0)}{dθ_j} =d(\frac{1}{2m}Σ(h_θ(x_i)-y_i))^2)</script><p>将梯度代回代价函数中就得到了<strong>Batch梯度下降法</strong>的基本形式：<br>Repeat untill convergence{  </p>
-<script type="math/tex; mode=display">θ_0:=θ_0-α\frac{1}{m}∑_{i=1}^m(h_θ(x^{(i)})-y^{(i)})</script><script type="math/tex; mode=display">
-θ_1:=θ_1-α\frac{1}{m}∑_{i=1}^m(h_θ(x^{(i)})-y^{(i)})x^{(i)}</script><p>}</p>
+<p>简言之，机器学习通过完成任务（T）得到经验（E），进而提升性能（P）。<br>例如：一个自我对弈的跳棋学习机器：E ：自我对弈的棋局 T：下跳棋 P：与新对手玩跳棋时的获胜概率</p>
+<h2 id="机器学习的主要算法类型"><a href="#机器学习的主要算法类型" class="headerlink" title="机器学习的主要算法类型"></a>机器学习的主要算法类型</h2><ul>
+<li><strong>监督学习</strong>（Supervised）人教会计算机完成任务。根据统计数据做直线或曲线拟合/分离数据，来预测结果。其中包括了两大问题：<ul>
+<li><strong>回归</strong>（Regression）<br>给算法做一个数据集，包含正确答案，（比如房价-年），用线性/非线性回归方程拟合数据,预测数据。<br><img src="https://raw.githubusercontent.com/l61012345/Pic/master/img/20210131124639.png" srcset="/img/loading.gif" alt=""></li>
+<li><strong>分类问题</strong>（<strong>逻辑回归</strong>问题）（Classification/Logical regression）<br>用实数对出现的可能状况分类<br>（比如：1和0表示患乳腺癌/不患乳腺癌 ；1表示患乳腺癌A，2表示患乳腺癌B，0表示不患乳腺癌），在多维坐标系中（每一个维度表示不同的属性），然后用线性或非线性的函数将不同类的数据分开。<br><img src="https://raw.githubusercontent.com/l61012345/Pic/master/img/20210131124726.png" srcset="/img/loading.gif" alt=""></li>
+</ul>
+</li>
+<li><strong>无监督学习</strong>（Unsupervised）计算机自己学习，经典的算法分为两大类：<ul>
+<li><strong>聚类算法</strong><br>对并不明确分类的数据集，计算机根据数据特征自动将数据分为几个簇<br><img src="https://raw.githubusercontent.com/l61012345/Pic/master/img/20210131124803.png" srcset="/img/loading.gif" alt=""></li>
+<li><strong>鸡尾酒会算法</strong>（Cocktail party）<br>略，这里只对鸡尾酒会问题和解决方法作一个概述：<br>鸡尾酒会问题是在计算机语音识别 领域的一个问题。<br>当前语音识别技术已经可以以较高精度识别一个人所讲的话，但是当说话的人数为两人或者多人时，语音识别率就会极大的降低，这一难题被称为鸡尾酒会问题。<br>对于的给定混合信号，分离出鸡尾酒会中 同时说话的每个人的独立信号。<br>鸡尾酒问题的解决方法是把两个收音器分别放在两个人的附近，每个收音器且与两个人的距离是不等距的，如此来分离两个人的声音。</li>
+</ul>
+</li>
+</ul>
 
             </div>
             <hr>
@@ -301,9 +267,9 @@ temp1:~~θ_1:=θ_1-α\frac{∂J(θ_0,θ_1)}{∂θ_1}</script><script type="math/
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/06/1.%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/1.3.%20%E5%A4%9A%E5%8F%98%E9%87%8F%E9%A2%84%E6%B5%8B/">
+                      <a href="/2021/02/06/1.%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/1.2.%20%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">1.3. 多变量预测</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -311,8 +277,8 @@ temp1:~~θ_1:=θ_1-α\frac{∂J(θ_0,θ_1)}{∂θ_1}</script><script type="math/
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/06/1.%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/1.1.%20%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="hidden-mobile">1.1. 什么是机器学习</span>
+                      <a href="/2021/02/05/hello-world/">
+                        <span class="hidden-mobile">Hello World</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -468,6 +434,45 @@ temp1:~~θ_1:=θ_1-α\frac{∂J(θ_0,θ_1)}{∂θ_1}</script><script type="math/
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 
